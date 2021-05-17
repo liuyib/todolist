@@ -1,8 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { configure } from 'mobx'
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+
+configure({
+  enforceActions: 'always',
+  computedRequiresReaction: true,
+  reactionRequiresObservable: true,
+  observableRequiresReaction: true,
+})
 
 ReactDOM.render(
   <React.StrictMode>
