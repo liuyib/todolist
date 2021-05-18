@@ -1,26 +1,30 @@
 import React from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { BrowserRouter as Router, Switch, Link } from 'react-router-dom'
+import routes from './routes'
+import { RouteWithSubRoutes } from './utils'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App: React.FC = () => (
+  <Router>
+    <div>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/webapp">WebApp</Link>
+        </li>
+        <li>
+          <Link to="/404">404</Link>
+        </li>
+      </ul>
     </div>
-  )
-}
+
+    <Switch>
+      {routes.map((route, index) => (
+        <RouteWithSubRoutes key={index} {...route} />
+      ))}
+    </Switch>
+  </Router>
+)
 
 export default App
