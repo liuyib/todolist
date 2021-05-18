@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  width: 100%;
+  height: 100px;
+  background: #eee;
+}
+
+.sidebar {
+}
+
+.content {
+  width: 100%;
+  height: 300px;
+  background: #ddd;
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  background: #eee;
+}

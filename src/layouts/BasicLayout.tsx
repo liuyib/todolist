@@ -1,5 +1,6 @@
 import React from 'react'
 import { Switch } from 'react-router-dom'
+import './BasicLayout.scss'
 
 export const BasicLayout: React.FC = ({ children }) => {
   return (
