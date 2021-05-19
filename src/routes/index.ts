@@ -16,6 +16,7 @@ const routes = [
   {
     path: '/',
     exact: true,
+    redirect: `/${process.env.NODE_ENV === 'development' ? 'webapp' : ''}`,
     component: Home,
   },
   {
