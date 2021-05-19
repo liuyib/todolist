@@ -1,0 +1,52 @@
+$cell-hover-bg: rgb(233, 237, 245);
+$cell-active-bg: rgba(75, 111, 222, 0.12);
+$title-color: rgba(0, 0, 0, 0.85);
+$icon-color: rgba(0, 0, 0, 0.54);
+$icon-active-color: rgba(0, 0, 0, 0.85);
+$icon-size: 16px;
+
+.cmp-cell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 36px;
+  line-height: 36px;
+  padding: 5px 10px;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: $cell-hover-bg;
+  }
+
+  &:active {
+    color: $title-color;
+  }
+
+  &-left {
+    margin: 0 8px 0 0;
+
+    & svg {
+      width: $icon-size;
+      height: $icon-size;
+      color: $icon-color;
+    }
+  }
+
+  &-title {
+    flex: 1;
+    color: $title-color;
+    text-align: left;
+  }
+
+  &-right {
+    color: $title-color;
+  }
+
+  &.active {
+    background-color: $cell-active-bg;
+
+    svg {
+      color: $icon-active-color;
+    }
+  }
+}
