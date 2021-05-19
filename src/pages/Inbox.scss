@@ -1,0 +1,12 @@
+.inbox {
+  &-center {
+    flex: 1;
+  }
+
+  &-right {
+    width: 36%;
+    min-width: 312px;
+    border-left: 1px solid rgba(0, 0, 0, 0.06);
+    background-color: #fff;
+  }
+}

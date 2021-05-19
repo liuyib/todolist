@@ -4,16 +4,12 @@ import './BasicLayout.scss'
 
 export const BasicLayout: React.FC = ({ children }) => {
   return (
-    <div className="wrapper">
-      <header className="header">header</header>
+    <div className="blayout">
+      <aside className="blayout-left">left</aside>
 
-      <aside className="sidebar">sidebar</aside>
-
-      <main className="content">
+      <div className="blayout-center">
         <Switch>{children}</Switch>
-      </main>
-
-      <footer className="footer">footer</footer>
+      </div>
     </div>
   )
 }

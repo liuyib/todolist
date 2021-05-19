@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { configure } from 'mobx'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
-import './index.scss'
+import './styles/index.scss'
 
 configure({
   enforceActions: 'always',
