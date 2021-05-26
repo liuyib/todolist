@@ -21,7 +21,6 @@ const routes = [
   },
   {
     path: '/webapp',
-    redirect: '/webapp/inbox',
     component: BasicLayout,
     children: [
       {
