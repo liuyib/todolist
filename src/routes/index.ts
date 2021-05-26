@@ -3,6 +3,7 @@ import BasicLayout from '../layouts/BasicLayout'
 import NotFound from '../pages/404'
 import Home from '../pages/Home'
 import Inbox from '../pages/Inbox'
+import Today from '../pages/Today'
 
 export interface IRoute {
   path: string
@@ -26,6 +27,10 @@ const routes = [
       {
         path: '/webapp/inbox',
         component: Inbox,
+      },
+      {
+        path: '/webapp/today',
+        component: Today,
       },
     ],
   },
