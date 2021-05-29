@@ -1,6 +1,7 @@
 import React from 'react'
 import './Inbox.scss'
 import Input from '../components/Input'
+import TodoItem from '../components/TodoItem'
 
 export const Inbox: React.FC = () => (
   <main className="inbox">
@@ -11,6 +12,8 @@ export const Inbox: React.FC = () => (
           console.log(`value`, value)
         }}
       ></Input>
+
+      <TodoItem></TodoItem>
     </div>
   </main>
 )
