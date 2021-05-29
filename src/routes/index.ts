@@ -21,6 +21,7 @@ const routes = [
     component: Home,
   },
   {
+    // FIXME: /webapp 路由应该自动重定向到 /webapp/inbox
     path: '/webapp',
     component: BasicLayout,
     children: [
