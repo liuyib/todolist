@@ -35,3 +35,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+//          32px 24px   20pxpx  16px 14px     12px
+$fontSizes: 2em, 1.5em, 1.25em, 1em, 0.875em, 0.85em;
+
+@each $size in $fontSizes {
+  $i: index($fontSizes, $size);
+
+  h#{$i} {
+    font-size: $size;
+  }
+}
