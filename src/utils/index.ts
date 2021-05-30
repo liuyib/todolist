@@ -2,6 +2,7 @@ import { KeyboardEvent } from 'react'
 
 export interface IKeyboard {
   Enter: number
+  Backspace: number
   [propName: string]: number
 }
 
