@@ -7,11 +7,13 @@ export interface ITodoItem {
   customClass?: string
   // input 元素的占位提示符
   placeholder?: string
+  title?: string
 }
 
 export const TodoItem = ({
   customClass = '',
   placeholder = '无标题',
+  title = '',
 }: ITodoItem) => {
   const rootClassName = ['cmp-todoitem', customClass].filter((v) => v).join(' ')
   const [isChecked, setIsChecked] = useState(false)
@@ -29,6 +31,7 @@ export const TodoItem = ({
         className="cmp-todoitem-input"
         type="text"
         placeholder={placeholder}
+        value={title}
       />
     </div>
   )
