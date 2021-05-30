@@ -1,28 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { configure } from 'mobx'
 import App from './App'
+import mobxInit from './configs/mobx'
 import reportWebVitals from './reportWebVitals'
+import Provider from './utils/provider'
 import './styles/index.scss'
-import TodoList from './stores/todo-list'
-import { StoreProvider } from './utils/store-provider'
 
-configure({
-  enforceActions: 'always',
-  computedRequiresReaction: true,
-  reactionRequiresObservable: true,
-  observableRequiresReaction: true,
-})
-
-const todolist = new TodoList(
-  JSON.parse(localStorage.getItem('xy-todolist:todos') || ''),
-)
+mobxInit()
 
 ReactDOM.render(
   <React.StrictMode>
-    <StoreProvider value={todolist}>
+    <Provider>
       <App />
-    </StoreProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
 )

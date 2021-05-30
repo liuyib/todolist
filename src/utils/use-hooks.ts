@@ -1,8 +1,8 @@
 import { useContext } from 'react'
 import { StoreContext } from './store-provider'
-import TodoList from '../stores/todo-list'
+import { TodoListStore } from '../stores/todo-list'
 
-export const useStore = (): TodoList => {
+export const useStore = (): TodoListStore => {
   const storeContext = useContext(StoreContext)
 
   if (!storeContext) {
