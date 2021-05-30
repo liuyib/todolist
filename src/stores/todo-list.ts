@@ -6,7 +6,7 @@ import {
   observe,
   toJS,
 } from 'mobx'
-import { TodoItemStore } from './todo-item'
+import { TodoItemStore, ITodoItemStoreProps } from './todo-item'
 
 export class TodoListStore {
   todos: TodoItemStore[] = []
@@ -28,12 +28,12 @@ export class TodoListStore {
 
   initTodos(todos: TodoItemStore[]) {
     todos.forEach((todo) => {
-      this.addTodo(todo.text, todo.isDone)
+      this.addTodo(todo)
     })
   }
 
-  addTodo(text: string, isDone = false) {
-    this.todos.unshift(new TodoItemStore(text, isDone))
+  addTodo({ id, text, isDone = false }: ITodoItemStoreProps) {
+    this.todos.unshift(new TodoItemStore({ id, text, isDone }))
   }
 
   removeTodo(todo: TodoItemStore) {

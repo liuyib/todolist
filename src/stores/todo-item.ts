@@ -1,11 +1,17 @@
 import { action, makeObservable, observable } from 'mobx'
 
-export class TodoItemStore {
-  id: number = Date.now()
-  text: string = ''
-  isDone: boolean = false
+export interface ITodoItemStoreProps {
+  id?: number
+  text: string
+  isDone?: boolean
+}
 
-  constructor(text: string, isDone = false) {
+export class TodoItemStore {
+  id: number
+  text: string
+  isDone: boolean
+
+  constructor({ id, text, isDone }: ITodoItemStoreProps) {
     makeObservable(this, {
       text: observable,
       isDone: observable,
@@ -13,8 +19,10 @@ export class TodoItemStore {
       toggleIsDone: action,
     })
 
+    // FIXME: Date.now() 换成 uuid
+    this.id = id || Date.now()
     this.text = text
-    this.isDone = isDone
+    this.isDone = isDone || false
   }
 
   updateText(text: string) {
