@@ -12,9 +12,7 @@ export const Inbox: React.FC = () => {
       <div className="inbox-header">
         <Input
           placeholder="添加任务至“收集箱”，回车即可保存"
-          enter={(value: string) => {
-            todolist.addTodo(value)
-          }}
+          enter={(value: string) => todolist.addTodo(value)}
         />
       </div>
 

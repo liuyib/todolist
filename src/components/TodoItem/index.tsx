@@ -15,9 +15,6 @@ export interface ITodoItemProps {
 
 export const TodoItem = observer(
   ({ customClass = '', placeholder = '无标题', todo }: ITodoItemProps) => {
-    const rootClassName = ['cmp-todoitem', customClass]
-      .filter((v) => v)
-      .join(' ')
     const [newText, setNewText] = useState('')
     const [isEdit, setIsEdit] = useState(false)
 
@@ -27,7 +24,7 @@ export const TodoItem = observer(
     }
 
     return (
-      <div className={rootClassName}>
+      <div className={['cmp-todoitem', customClass].filter((v) => v).join(' ')}>
         <span
           className="cmp-todoitem-checkbtn"
           onClick={() => todo.toggleIsDone()}

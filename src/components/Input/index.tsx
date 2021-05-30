@@ -22,11 +22,10 @@ export const Input = ({
   after,
   enter = () => {},
 }: IInputProps) => {
-  const rootClassName = ['cmp-input', customClass].filter((v) => v).join(' ')
   const [input, setInput] = useState('')
 
   return (
-    <div className={rootClassName}>
+    <div className={['cmp-input', customClass].filter((v) => v).join(' ')}>
       <div className="cmp-input-before">{before}</div>
       <input
         className="cmp-input-center"

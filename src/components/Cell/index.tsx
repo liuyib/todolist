@@ -21,10 +21,11 @@ export const Cell = ({
   title,
   after,
 }: ICellProps) => {
-  const rootClassName = ['cmp-cell', customClass].filter((v) => v).join(' ')
-
   return (
-    <a className={rootClassName} href={link}>
+    <a
+      className={['cmp-cell', customClass].filter((v) => v).join(' ')}
+      href={link}
+    >
       <div className="cmp-cell-left">{before}</div>
       <div className="cmp-cell-title">{title}</div>
       <div className="cmp-cell-right">{after}</div>
