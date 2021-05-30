@@ -5,7 +5,7 @@ export class TodoItemStore {
   text: string = ''
   isDone: boolean = false
 
-  constructor(text: string) {
+  constructor(text: string, isDone = false) {
     makeObservable(this, {
       text: observable,
       isDone: observable,
@@ -14,6 +14,7 @@ export class TodoItemStore {
     })
 
     this.text = text
+    this.isDone = isDone
   }
 
   updateText(text: string) {

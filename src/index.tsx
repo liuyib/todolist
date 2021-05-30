@@ -14,7 +14,9 @@ configure({
   observableRequiresReaction: true,
 })
 
-const todolist = new TodoList([])
+const todolist = new TodoList(
+  JSON.parse(localStorage.getItem('xy-todolist:todos') || ''),
+)
 
 ReactDOM.render(
   <React.StrictMode>
