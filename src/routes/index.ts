@@ -10,7 +10,7 @@ export interface IRoute {
   exact?: boolean
   redirect?: string
   component?: React.FC
-  children?: Array<IRoute>
+  children?: IRoute[]
 }
 
 const routes = [
