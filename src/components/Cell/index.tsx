@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.scss'
 
-export interface ICell {
+export interface ICellProps {
   // 根元素的自定义样式类（值为 active 时，组件呈现为激活变色状态）
   customClass?: string
   // 跳转地址
@@ -20,7 +20,7 @@ export const Cell = ({
   before,
   title,
   after,
-}: ICell) => {
+}: ICellProps) => {
   const rootClassName = ['cmp-cell', customClass].filter((v) => v).join(' ')
 
   return (

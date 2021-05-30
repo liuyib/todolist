@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { isKeyboard } from '../../utils'
 import './index.scss'
 
-export interface IInput {
+export interface IInputProps {
   // 根元素自定义样式类
   customClass?: string
   // input 元素的占位提示符
@@ -21,7 +21,7 @@ export const Input = ({
   before,
   after,
   enter = () => {},
-}: IInput) => {
+}: IInputProps) => {
   const rootClassName = ['cmp-input', customClass].filter((v) => v).join(' ')
   const [input, setInput] = useState('')
 

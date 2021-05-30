@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { BorderOutlined, CheckSquareFilled } from '@ant-design/icons'
 import './index.scss'
 
-export interface ITodoItem {
+export interface ITodoItemProps {
   // 根元素自定义样式类
   customClass?: string
   // input 元素的占位提示符
@@ -14,7 +14,7 @@ export const TodoItem = ({
   customClass = '',
   placeholder = '无标题',
   title = '',
-}: ITodoItem) => {
+}: ITodoItemProps) => {
   const rootClassName = ['cmp-todoitem', customClass].filter((v) => v).join(' ')
   const [isChecked, setIsChecked] = useState(false)
 
