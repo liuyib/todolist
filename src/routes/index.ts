@@ -1,9 +1,9 @@
 import React from 'react'
-import BasicLayout from '../layouts/BasicLayout'
-import NotFound from '../pages/404'
-import Home from '../pages/Home'
-import Inbox from '../pages/Inbox'
-import Today from '../pages/Today'
+import { BasicLayout } from '../layouts/BasicLayout'
+import { NotFound } from '../pages/404'
+import { Home } from '../pages/Home'
+import { Inbox } from '../pages/Inbox'
+import { Today } from '../pages/Today'
 
 export interface IRoute {
   path: string
@@ -13,7 +13,7 @@ export interface IRoute {
   children?: IRoute[]
 }
 
-const routes = [
+export const routes = [
   {
     path: '/',
     exact: true,

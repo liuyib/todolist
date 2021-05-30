@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { observer } from 'mobx-react'
 import { BorderOutlined, CheckSquareFilled } from '@ant-design/icons'
-import './index.scss'
 import { TodoItemStore } from '../../stores/todo-item'
 import { onKeyPress } from '../../utils'
+import './index.scss'
 
 export interface ITodoItemProps {
   // 根元素自定义样式类
@@ -51,4 +51,5 @@ export const TodoItem = observer(
     )
   },
 )
+
 export default TodoItem

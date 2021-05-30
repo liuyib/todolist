@@ -1,8 +1,8 @@
 import React from 'react'
-import './Inbox.scss'
 import { useStore } from '../utils/use-hooks'
-import Input from '../components/Input'
-import TodoList from '../components/TodoList'
+import { Input } from '../components/Input'
+import { TodoList } from '../components/TodoList'
+import './Inbox.scss'
 
 export const Inbox: React.FC = () => {
   const todolist = useStore()

@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import mobxInit from './configs/mobx'
+import mobxConfig from './configs/mobx'
 import reportWebVitals from './reportWebVitals'
 import Provider from './utils/provider'
 import './styles/index.scss'
 
-mobxInit()
+mobxConfig()
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react'
 import { useStore } from '../../utils/use-hooks'
-import TodoItem from '../TodoItem'
+import { TodoItem } from '../TodoItem'
 
 export const TodoList = observer(() => {
   const todoList = useStore()

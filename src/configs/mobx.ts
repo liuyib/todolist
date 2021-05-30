@@ -1,6 +1,6 @@
 import { configure } from 'mobx'
 
-export const mobxInit = () => {
+export const mobxConfig = () => {
   configure({
     enforceActions: 'always',
     computedRequiresReaction: true,
@@ -9,4 +9,4 @@ export const mobxInit = () => {
   })
 }
 
-export default mobxInit
+export default mobxConfig

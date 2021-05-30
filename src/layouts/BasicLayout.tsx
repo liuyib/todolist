@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Switch, useLocation } from 'react-router-dom'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
+import { Cell } from '../components/Cell/index'
+import { sidebar } from '../configs/sidebar'
 import './BasicLayout.scss'
-import Cell from '../components/Cell/index'
-import sidebar from '../configs/sidebar'
 
 export const BasicLayout: React.FC = ({ children }) => {
   const { pathname } = useLocation()
