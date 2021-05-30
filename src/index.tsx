@@ -4,6 +4,8 @@ import { configure } from 'mobx'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import './styles/index.scss'
+import TodoList from './stores/todo-list'
+import { StoreProvider } from './utils/store-provider'
 
 configure({
   enforceActions: 'always',
@@ -12,9 +14,13 @@ configure({
   observableRequiresReaction: true,
 })
 
+const todolist = new TodoList([])
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <StoreProvider value={todolist}>
+      <App />
+    </StoreProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 )

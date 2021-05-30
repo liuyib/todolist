@@ -7,18 +7,23 @@ export interface IKeyboard {
 }
 
 /**
- * 判断键盘上指定的键是否被触发
- * @param event
+ * 键盘上的指定键被按下后，执行回调函数
  * @param key - 键盘上的键名称（可选值：Enter | Backspace）
- * @returns
+ * @param cb - 回调函数
+ * @returns Function
  */
-export const isKeyboard = (event: KeyboardEvent, key: string) => {
-  const keyboardType: IKeyboard = {
-    Enter: 13,
-    Backspace: 8,
-  }
-  const keyCode: number = event.charCode || event.keyCode
-  const eventKey = event.key
+export const onKeyPress = (key: string, cb: Function) => {
+  return (event: KeyboardEvent) => {
+    const keyboardType: IKeyboard = {
+      Enter: 13,
+      Backspace: 8,
+    }
 
-  return key === eventKey || keyboardType[key] === keyCode
+    const keyCode: number = event.charCode || event.keyCode
+    const eventKey = event.key
+
+    if (key === eventKey || keyboardType[key] === keyCode) {
+      cb()
+    }
+  }
 }

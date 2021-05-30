@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { isKeyboard } from '../../utils'
+import { onKeyPress } from '../../utils'
 import './index.scss'
 
 export interface IInputProps {
@@ -34,13 +34,7 @@ export const Input = ({
         placeholder={placeholder}
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        onKeyUp={(e) => {
-          e.stopPropagation()
-
-          if (isKeyboard(e, 'Enter')) {
-            enter(input)
-          }
-        }}
+        onKeyUp={onKeyPress('Enter', () => enter(input))}
       />
       <div className="cmp-input-after">{after}</div>
     </div>
