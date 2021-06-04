@@ -1,8 +1,10 @@
 import { useState } from 'react'
+import { autorun } from 'mobx'
 import { observer } from 'mobx-react'
 import { BorderOutlined, CheckSquareFilled } from '@ant-design/icons'
 import { TodoItemStore } from '../../stores/todo-item'
 import { onKeyPress } from '../../utils'
+import { useStore } from '../../utils/use-hooks'
 import './index.scss'
 
 export interface ITodoItemProps {
@@ -15,12 +17,14 @@ export interface ITodoItemProps {
 
 export const TodoItem = observer(
   ({ customClass = '', placeholder = '无标题', todo }: ITodoItemProps) => {
-    const [newText, setNewText] = useState('')
+    const [newText, setNewText] = useState(todo.text)
     const [isEdit, setIsEdit] = useState(false)
+    const todolist = useStore()
 
     const saveText = () => {
-      todo.updateText(newText)
       setIsEdit(false)
+      todo.updateText(newText)
+      autorun(() => todolist.cacheTodos())
     }
 
     return (
@@ -38,6 +42,7 @@ export const TodoItem = observer(
             type="text"
             placeholder={placeholder}
             autoFocus={isEdit}
+            value={newText}
             onChange={(e) => setNewText(e.target.value)}
             onKeyDown={onKeyPress('Enter', saveText)}
             onBlur={saveText}
