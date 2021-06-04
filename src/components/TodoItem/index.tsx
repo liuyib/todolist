@@ -24,6 +24,7 @@ export const TodoItem = observer(
     const saveText = () => {
       setIsEdit(false)
       todo.updateText(newText)
+      // 如果不包一层 autorun，MobX 会警告没有在 reaction context 中读取属性
       autorun(() => todolist.cacheTodos())
     }
 
