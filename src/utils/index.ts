@@ -27,3 +27,10 @@ export const onKeyPress = (key: string, cb: Function) => {
     }
   }
 }
+
+export const isObjKey = (
+  key: string | number,
+  obj: object,
+): key is keyof typeof obj => {
+  return key in obj
+}
