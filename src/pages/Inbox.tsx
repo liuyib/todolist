@@ -2,7 +2,6 @@ import React from 'react'
 import { useStore } from '../utils/use-hooks'
 import { Input } from '../components/Input'
 import { TodoList } from '../components/TodoList'
-import Collapse from '../components/Collapse'
 import './Inbox.scss'
 
 export const Inbox: React.FC = () => {
@@ -18,19 +17,6 @@ export const Inbox: React.FC = () => {
       </div>
 
       <TodoList />
-
-      <Collapse
-        title="已完成"
-        content={
-          <div>
-            <div>test 111</div>
-            <div>test 111</div>
-            <div>test 111</div>
-            <div>test 111</div>
-            <div>test 111</div>
-          </div>
-        }
-      />
     </main>
   )
 }
