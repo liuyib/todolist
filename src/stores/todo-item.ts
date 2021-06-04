@@ -1,15 +1,17 @@
 import { action, makeObservable, observable } from 'mobx'
+import { uid } from 'uid/secure'
+import GLOBAL_CONFIG from '../configs/global'
 
 export interface ITodoItemStoreProps {
-  id?: number
   text: string
+  id?: number | string
   isDone?: boolean
 }
 
 export class TodoItemStore {
-  id: number
   text: string
-  isDone: boolean
+  id?: number | string
+  isDone?: boolean
 
   constructor({ id, text, isDone }: ITodoItemStoreProps) {
     makeObservable(this, {
@@ -19,8 +21,7 @@ export class TodoItemStore {
       toggleIsDone: action,
     })
 
-    // FIXME: Date.now() 换成 uuid
-    this.id = id || Date.now()
+    this.id = id || uid(GLOBAL_CONFIG.uid.length)
     this.text = text
     this.isDone = isDone || false
   }
