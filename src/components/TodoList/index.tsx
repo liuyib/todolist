@@ -15,6 +15,7 @@ const TodoView = observer(({ todosType }: { todosType: string }) => {
 
   // 用于通过 TS 检查，否则 `todolist[todosType]` 将报错
   if (isObjKey(todosType, todolist)) {
+    // 必须赋值才能触发状态更新（如果用 .concat, .push 等方法，则无法触发）
     todos = todolist[todosType]
   }
 

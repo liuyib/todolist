@@ -21,19 +21,23 @@ export const TodoItem = observer(
     const [isEdit, setIsEdit] = useState(false)
     const todolist = useStore()
 
-    const saveText = () => {
-      setIsEdit(false)
-      todo.updateText(newText)
+    const save2Cache = () => {
       // 如果不包一层 autorun，MobX 会警告没有在 reaction context 中读取属性
       autorun(() => todolist.cacheTodos())
+    }
+    const saveCheck = () => {
+      todo.toggleIsDone()
+      save2Cache()
+    }
+    const saveText = () => {
+      todo.updateText(newText)
+      setIsEdit(false)
+      save2Cache()
     }
 
     return (
       <div className={['cmp-todoitem', customClass].filter((v) => v).join(' ')}>
-        <span
-          className="cmp-todoitem-checkbtn"
-          onClick={() => todo.toggleIsDone()}
-        >
+        <span className="cmp-todoitem-checkbtn" onClick={() => saveCheck()}>
           {todo.isDone ? <CheckSquareFilled /> : <BorderOutlined />}
         </span>
 
