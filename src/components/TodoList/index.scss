@@ -1,7 +1,43 @@
+$btn-more-size: 28px;
+
 .cmp-todolist {
   &-empty {
     padding: 3px 0;
     text-align: center;
     color: #999;
+  }
+
+  &-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-todo {
+    // The "28px" should equal $btn-more-size
+    width: calc(100% - 28px);
+  }
+
+  &-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $btn-more-size;
+    height: $btn-more-size;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #eee;
+    }
+  }
+
+  &-popover {
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 }
