@@ -15,7 +15,6 @@ export interface IPopoverProps {
   setIsMoreVisible?: Function
 }
 
-// TODO: 这个组件应该能够根据“显示点”的位置和自身的大小，动态决定箭头的方向
 export const Popover = ({
   customClass,
   title,
@@ -31,6 +30,7 @@ export const Popover = ({
   let top = 0
 
   if (!isEmptyObj(rect) && !isEmptyObj(thisRect)) {
+    // FIXME: 计算不准，位置经常出现偏移
     left = rect.left + (rect.width - thisRect.width) / 2
     top = rect.top + rect.height * 2
   }
