@@ -28,9 +28,25 @@ export const onKeyPress = (key: string, cb: Function) => {
   }
 }
 
+/**
+ * 判断 key 是否是 obj 的键
+ */
 export const isObjKey = (
   key: string | number,
   obj: object,
 ): key is keyof typeof obj => {
   return key in obj
+}
+
+/**
+ * 判断是否是空对象
+ */
+export const isEmptyObj = (obj: object): boolean => {
+  for (const key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      return false
+    }
+  }
+
+  return JSON.stringify(obj) === JSON.stringify({})
 }

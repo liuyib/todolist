@@ -10,8 +10,6 @@ $arrow-size: 12px;
   background-clip: padding-box;
   border-radius: 2px;
   box-shadow: 0 0 9px 3px #eee;
-  // 计算正方形对角线长度的一半
-  margin: math.div(math.sqrt(math.pow(get-value($arrow-size), 2) * 2), 2) * 1px;
 
   &-title {
     min-width: 177px;

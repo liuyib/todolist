@@ -13,19 +13,14 @@ export interface ITodoViewProps {
   todosType: string
   isMoreVisible: boolean
   setMoreVisible: Function
-  setMorePos: Function
+  setRect: Function
 }
 
 /**
  * @param todosType - TodoListStore 中的 todos 数据
  */
 const TodoView = observer(
-  ({
-    todosType,
-    isMoreVisible,
-    setMoreVisible,
-    setMorePos,
-  }: ITodoViewProps) => {
+  ({ todosType, isMoreVisible, setMoreVisible, setRect }: ITodoViewProps) => {
     const todolist = useStore()
     let todos: TodoItemStore[] = []
 
@@ -44,7 +39,8 @@ const TodoView = observer(
               <MoreOutlined
                 className="cmp-todolist-more"
                 onClick={(e) => {
-                  setMorePos({ left: e.clientX, top: e.clientY })
+                  e.stopPropagation()
+                  setRect((e.target as any).getBoundingClientRect())
                   setMoreVisible(!isMoreVisible)
                 }}
               />
@@ -60,7 +56,7 @@ const TodoView = observer(
 
 export const TodoList = () => {
   const [isMoreVisible, setIsMoreVisible] = useState(false)
-  const [morePos, setMorePos] = useState({ left: 0, top: 0 })
+  const [rect, setRect] = useState({})
 
   return (
     <div className="cmp-todolist">
@@ -71,7 +67,7 @@ export const TodoList = () => {
             todosType="openTodos"
             isMoreVisible={isMoreVisible}
             setMoreVisible={setIsMoreVisible}
-            setMorePos={setMorePos}
+            setRect={setRect}
           />
         }
       ></Collapse>
@@ -83,15 +79,15 @@ export const TodoList = () => {
             todosType="doneTodos"
             isMoreVisible={isMoreVisible}
             setMoreVisible={setIsMoreVisible}
-            setMorePos={setMorePos}
+            setRect={setRect}
           />
         }
       ></Collapse>
 
       <Popover
         visible={isMoreVisible}
-        left={morePos.left}
-        top={morePos.top}
+        setIsMoreVisible={setIsMoreVisible}
+        rect={rect}
         customClass="cmp-todolist-popover"
         content={
           <div>
